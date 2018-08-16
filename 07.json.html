@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <input type="button" value="json불러와">
+
+    <div class="item">
+
+    </div>
+
+
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.12.1/jquery.min.js'></script>
+<script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>
+<script type='text/javascript'>
+$(document).ready(function(){
+    $('input:button').click(function(){
+        $.get('item2.json', function(data){
+            var html = "";
+            $.each(data, function(index, target){
+                html+= '<div class="target">'+'<h1>'+target.id+'</h1>'+
+                            '<h3>'+target.name+'</h3>'+
+                            '<h5>'+target.price+'</h5>'+
+                            '<p>'+target.description+'</p>'+
+                            '<img src='+target.imgUrl+'>'+
+                        '</div>';
+                // html += '<div class="target">';
+                // html += '<h3 class="term">'+ target.id+'</h3>';
+                // html += '<div class="part">' + target.name + '</div>';
+                // html += '<h5 class="preper">'+target.price+'</div>';
+                // html += '<p class=description">'+
+                //             target.description+
+                //         '</p>';
+                // html += '</div>';
+            });
+            console.log(html);
+            $('.item').append(html);
+        });
+        return false;
+    });
+});
+</script>
+</body>
+</html>

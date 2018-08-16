@@ -1,0 +1,23 @@
+[
+  {
+   "id":"1",
+   "name":"레몬",
+   "price":"3000",
+   "description":"피로회복에 좋고 비타민C 풍부",
+   "imgUrl":"https://cdn.bmf.kr/_data/product/H1821/5a4ed4e8a6751cb1cc089535c000f331.jpg"
+  },
+  {
+  "id":"2",
+   "name":"키위",
+   "price":"2000",
+   "description":"비타민C 풍부,다이어트와 미용",
+   "imgUrl":"https://cdn.bmf.kr/_data/product/H503E/300d931e3b8252ed628b6a3c2f56936b.jpg"
+  },
+  {
+  "id":"3",
+   "name":"블루베리",
+   "price":"5000",
+   "description":"안토시아니은 눈피로에 좋다",
+   "imgUrl":"http://res.heraldm.com/phpwas/restmb_idxmake.php?idx=507&simg=/content/image/2017/04/26/20170426000920_0.jpg"
+  }
+]
