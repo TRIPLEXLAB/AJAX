@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jquery예제(serialize(),serializeArray())</title>
+<script type="text/javascript" 
+           src="http://code.jquery.com/jquery-3.3.1.min.js" ></script>
+<script>
+    $(function(){
+    	$('#submit').click(function(){
+    		$('#result').empty()//전에 부착된 내용을 새로 지우고
+    		 //(1)
+    		 /*
+    		  var form_data=$('form').serializeArray();//json형식의 문자열로변환
+    	      $.post('form.jsp',form_data,function(args){
+    	    	  $('#result').html(args)
+    	      })
+    	      */
+    	      //(2)
+    		var form_data=$('form').serialize();
+    		  $('#result').text(form_data)
+    	})
+    })
+</script>
+</head>
+<body>
+<!-- 
+ {매개변수명:전달할값,매개변수명2:전달할값,,,,}
+ 폼에 입력한 데이터 JSON형식의 문자열로 변환-> 전송함수(serializeArray())
+
+ -->
+   <form>
+     <input type="hidden" name="seq" value="1">
+     <label>이름을 입력하세요:</label>
+     <input type="text" name="username"><br>
+     <label>패스워드를 입력하세요:</label>
+     <input type="password" name="password"><br>
+     <input type="checkbox" name="hobby" value="music">music
+     <input type="checkbox" name="hobby" value="yoga">yoga
+     <input type="checkbox" name="hobby" value="reading">reading
+     <input type="button" id="submit" value="전송">
+   </form>
+   <hr>
+   <div id="result">
+   
+   </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

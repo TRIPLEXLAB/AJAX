@@ -9,7 +9,7 @@
     $(function(){
     	//text or xml or json(대세)
     	//$.post()->post방식으로 요청,$.get('요청문',function(매개변수){})
-    	$.get('item.xml',function(data){ //data는 최상위에 있는 루트를 말하는것 과 같다.
+    	$.get('item.xml',function(data){
     		$('#treeData').append('<tr><td>id</td><td>name</td>'
     				            +'<td>price</td><td>description</td></tr>')
     		 //$.each(function(매개변수)) or $('선택자').each(function(){})

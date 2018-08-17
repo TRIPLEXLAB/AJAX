@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jquery예제</title>
+<link rel="stylesheet" href="../etc/autoid.css"  type="text/css">
+<script type="text/javascript" 
+           src="http://code.jquery.com/jquery-3.3.1.min.js" ></script>
+<script>
+    $(function(){
+    	//검색어를 입력하기전에는 목록이 나오면 안된다.X
+    	$('.listbox').hide() //<->show()
+    	$('.userid').keyup(function(){
+    		var uid=$('.userid').val()
+    		//alert(uid)
+    		var param='userid='+uid//autoid.jsp에게 매개변수로 전달{매개변수명:값}
+    		//$.post()
+    		$.ajax({
+    			type:'post', /* type:get|post 전송방식 */
+    			url:'autoid.jsp',  /* 요청문서 */
+    			data:param, /* data:{매개변수:값,,,} */
+    			success:function(html){ //<li>testkim</li>
+    				$('.listbox').show()
+    				$('.namelist').html(html)
+    				//하이라이트 효과
+    				$('li').hover(function(){
+    					$(this).addClass('hover')
+    				},function(){
+    					$(this).removeClass('hover')
+    				})
+    				//목록을 클릭->항목을 등록
+    				$('li').click(function(){
+    					$('.userid').val($(this).text())//선택한 항목을 검색어등록
+    					$('.listbox').hide()//목록창 감추가
+    				})
+    			}//success
+    		})//$.ajax
+    	  return false;//전송X
+    	})//$('.userid')
+    })
+</script>
+</head>
+<body>
+   <h1>검색할 작성자명(id)를 입력하세요</h1>
+   <form>
+     검색어:<input type="text" name="userid" class="userid"><br>
+     <div class="listbox">
+        <div class="namelist">
+            <!-- <li>testkim</li> -->
+        </div>
+     </div>
+   </form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
