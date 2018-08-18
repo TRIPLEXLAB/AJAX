@@ -10,13 +10,13 @@
     	$('#submit').click(function(){
     		$('#result').empty()//전에 부착된 내용을 새로 지우고
     		 //(1)
-    		  var form_data=$('form').serializeArray();//json형식의 문자열로변환  {매개변수:값, 매개변수: 값,}
+    		  var form_data=$('form').serializeArray();//serializeArray은 json형식의 문자열로변환 {매개변수:값, 매개변수: 값,}
     	    $.post('form.jsp',form_data,function(args){
     	    	  $('#result').html(args)
     	    })
     	      
     	    //(2)
-    		  var form_data=$('form').serializeArray(); //형식으로 FirstName = Mickey LastName = Mouse 바꾸준다.
+    		  var form_data=$('form').serializeArray(); //serializeArray은 json형식의 문자열로변환 {매개변수:값, 매개변수: 값,} 바꾸준다.
           $.each(form_data, function(index ,data){
                $('#result').append(data.name+ ":" + data.value+" ");
           });
